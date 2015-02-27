@@ -11,7 +11,26 @@
 |
 */
 
-Route::get('/', function()
+Route::get('/', 'HomeController@showWelcome');
+
+Route::get('storage', function()
 {
-	return View::make('hello');
+	return "Buy/Rent for Storage";
 });
+
+Route::get('custom', function()
+{
+	return "Custom Homes or Offices";
+});
+
+Route::get('contact', function()
+{
+	return "Contact Info";
+});
+
+Route::get('login', 'HomeController@showLogin');
+Route::post('login', 'HomeController@doLogin');
+Route::get('logout', 'HomeController@doLogout');
+
+Route::resource('posts', 'PostsController');
+
